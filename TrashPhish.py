@@ -11,6 +11,7 @@ from threading import Thread
 from random import randint, choice, seed
 from random_username.generate import generate_username
 from lxml.html import fromstring
+from itertools import cycle
 
 url = '#URL HERE#'
 
@@ -38,27 +39,32 @@ def get_proxies():
             proxy = ":".join([i.xpath('.//td[1]/text()')[0], i.xpath('.//td[2]/text()')[0]])
             proxies.add(proxy)
     return proxies
+proxies = get_proxies()
+proxy_pool = cycle(proxies)
 
 def trash_poster():
     """
-    Spits out two flavors of junk to make detection and differentation from legit account info a tiny bit harder. "User" and "password" form sections should be filled in with the appropriate form data from the html of the phishing page.
+    Spits out two flavors of junk to make detection and differentation from legit account info a tiny bit harder
     """
 
     while True:
         if randint(0,2) % 2 == 0:
             for name in names:
-
                 name_extra = ''.join(choice(string.digits))
                 username = name.lower() + name_extra
                 password = id_generator(randint(6,21))
         else:
             username = generate_username(1)[0]
             password = id_generator(randint(6,21))
-
-        requests.post(url, proxies = get_proxies(), header = headers, allow_redirects=False, data={
-            '#USER FORM': username,
-            '#PASSWORD FORM': password
-        })
+        for i in range(1, 11):
+            try:
+                proxy = next(proxy_pool)
+                requests.post(url, proxies = {"http": prox, "https": prxy}, header = headers, allow_redirects=False, data={
+                    '#USER FORM': username,
+                    '#PASSWORD FORM': password
+                })
+            except:
+                print("Connection error. Skipping proxy.")
 
         print('sending username %s and password %s' % (username, password))
 
