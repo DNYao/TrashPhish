@@ -1,2 +1,3 @@
 random_username
 requests
+lxml
