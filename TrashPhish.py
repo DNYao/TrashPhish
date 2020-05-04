@@ -63,7 +63,7 @@ def trash_poster():
         for i in range(1, 11):
             try:
                 proxy = next(proxy_pool)
-                requests.post(url, proxies = {"http": prox, "https": prxy}, header = headers, allow_redirects=False, data={
+                requests.post(url, proxies = {"http": proxy, "https": proxy}, header = headers, allow_redirects=False, data={
                     '#USER FORM': username,
                     '#PASSWORD FORM': password
                 })
