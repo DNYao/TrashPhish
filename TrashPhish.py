@@ -73,6 +73,6 @@ def id_generator(size=21, chars=string.ascii_uppercase + string.digits):
 
 if __name__ == "__main__":
     for k in range(0, num):
-        thread = Thread(target = trash_poser)
+        thread = Thread(target = trash_poster)
         thread.start()
         print('Launched thread '+str(k))
