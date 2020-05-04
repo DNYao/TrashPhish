@@ -37,7 +37,7 @@ def get_proxies():
 
 def trash_poster():
     """
-    Spits out two flavors of junk to make detection and differentation from legit account info a tiny bit harder
+    Spits out two flavors of junk to make detection and differentation from legit account info a tiny bit harder. "User" and "password" form sections should be filled in with the appropriate form data from the html of the phishing page.
     """
 
     while True:
