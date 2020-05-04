@@ -1,3 +1,7 @@
+'''
+Floods phishing sites with fake user credentials. For now, form names must be taken from the phishing site manually.
+'''
+
 import requests
 import os
 import sys
