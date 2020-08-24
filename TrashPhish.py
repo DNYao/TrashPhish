@@ -16,7 +16,7 @@ from random_username.generate import generate_username
 from lxml.html import fromstring
 from itertools import cycle
 
-url = 'http://www.clgthh.org'
+url = '#URL HERE#'
 
 chars = string.ascii_letters + string.digits + '!@#$%^&*()'
 seed = (os.urandom(1024))
