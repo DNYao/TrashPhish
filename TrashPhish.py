@@ -15,8 +15,6 @@ import random
 from threading import Thread
 from random import randint
 from random_username.generate import generate_username
-from lxml.html import fromstring
-from itertools import cycle
 from utils import passwords, names, header_info
 from time import sleep
 
