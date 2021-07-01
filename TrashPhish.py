@@ -1,6 +1,4 @@
 '''
-get_proxies() taken from https://www.scrapehero.com/how-to-rotate-proxies-and-ip-addresses-using-python-3/
-
 trash_poster() and id_generator() code modified from https://github.com/ginward/FloodPhishingSite/blob/master/goodbye.py
 '''
 
